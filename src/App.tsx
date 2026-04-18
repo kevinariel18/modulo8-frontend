@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { ErrorBoundary } from "@/presentation/components/ErrorBoundary";
 import { ProtectedRoute } from "@/presentation/components/ProtectedRoute";
 import { LoginPage } from "@/presentation/pages/LoginPage";
@@ -27,6 +27,31 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+function DashboardWrapper() {
+  const { user, upgradeToPremium } = useAuth();
+  const navigate = useNavigate();
+
+  return (
+    <DashboardPage
+      isPremium={user?.isPremium ?? false}
+      onGoToMyList={() => navigate("/mylist")}
+      onBecomePremium={() => void upgradeToPremium()}
+    />
+  );
+}
+
+function MyListWrapper() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  return (
+    <MyListPage
+      isPremium={user?.isPremium ?? false}
+      onBack={() => navigate("/dashboard")}
+    />
+  );
+}
+
 export function App() {
   return (
     <ErrorBoundary>
@@ -40,7 +65,7 @@ export function App() {
               path="/dashboard"
               element={
                 <ProtectedRoute>
-                  <DashboardPage />
+                  <DashboardWrapper />
                 </ProtectedRoute>
               }
             />
@@ -49,7 +74,7 @@ export function App() {
               path="/mylist"
               element={
                 <ProtectedRoute>
-                  <MyListPage />
+                  <MyListWrapper />
                 </ProtectedRoute>
               }
             />
