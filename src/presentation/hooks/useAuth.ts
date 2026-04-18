@@ -4,14 +4,8 @@ import { RegisterUser } from "@/application/use-cases/RegisterUser";
 import { LogoutUser } from "@/application/use-cases/LogoutUser";
 import { UpgradeToPremium } from "@/application/use-cases/UpgradeToPremium";
 import type { LoginCredentials, RegisterData, User } from "@/domain/entities/User";
-import { ApiAuthRepository } from "@/infrastructure/adapters/ApiAuthRepository";
-import { ApiUserRepository } from "@/infrastructure/adapters/ApiUserRepository";
-import { HttpClient } from "@/infrastructure/api/httpClient";
+import { authRepository, userRepository } from "@/infrastructure/container";
 import { STORAGE_KEYS } from "@/config/constants";
-
-const httpClient = new HttpClient();
-const authRepository = new ApiAuthRepository(httpClient);
-const userRepository = new ApiUserRepository(httpClient);
 
 export function useAuth() {
   const [user, setUser] = useState<User | null>(null);

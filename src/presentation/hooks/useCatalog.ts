@@ -3,12 +3,7 @@ import { FilterByGenre } from "@/application/use-cases/FilterByGenre";
 import { GetCatalog } from "@/application/use-cases/GetCatalog";
 import { SearchCatalog } from "@/application/use-cases/SearchCatalog";
 import type { Content, Genre } from "@/domain/entities/Content";
-import { ApiCatalogRepository } from "@/infrastructure/adapters/ApiCatalogRepository";
-import { HttpClient } from "@/infrastructure/api/httpClient";
-
-function makeRepo() {
-  return new ApiCatalogRepository(new HttpClient());
-}
+import { catalogRepository } from "@/infrastructure/container";
 
 export function useCatalog() {
   const [contents, setContents] = useState<Content[]>([]);
@@ -20,9 +15,8 @@ export function useCatalog() {
     setLoading(true);
     setError(null);
     try {
-      const data = await new GetCatalog(makeRepo()).execute();
+      const data = await new GetCatalog(catalogRepository).execute();
       setContents(data);
-      // Extraer géneros únicos del catálogo
       const unique = Array.from(
         new Map(data.map((c) => [c.genre.id, c.genre])).values()
       );
@@ -38,7 +32,7 @@ export function useCatalog() {
     setLoading(true);
     setError(null);
     try {
-      const data = await new SearchCatalog(makeRepo()).execute(query);
+      const data = await new SearchCatalog(catalogRepository).execute(query);
       setContents(data);
     } catch (e) {
       setError((e as Error).message);
@@ -51,7 +45,7 @@ export function useCatalog() {
     setLoading(true);
     setError(null);
     try {
-      const data = await new FilterByGenre(makeRepo()).execute(genreId);
+      const data = await new FilterByGenre(catalogRepository).execute(genreId);
       setContents(data);
     } catch (e) {
       setError((e as Error).message);

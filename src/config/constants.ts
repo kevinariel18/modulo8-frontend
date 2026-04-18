@@ -1,13 +1,14 @@
 export const API_ROUTES = {
-  products: "/products",
-  login: "/auth/login",
-  register: "/auth/register",
-  logout: "/auth/logout",
-  refreshToken: "/auth/refresh",
-  user: (id: string) => `/users/${id}`,
-  upgradePremium: (id: string) => `/users/${id}/premium`,
-  catalog: "/api/catalog",
-  catalogSearch: "/api/catalog/search",
+  products: "/api/contenidos",
+  login: "/api/auth/login",
+  register: "/api/auth/register",
+  logout: "/api/auth/logout",
+  refreshToken: "/api/auth/refresh",
+  user: (id: string) => `/api/users/${id}`,
+  upgradePremium: (id: string) => `/api/users/${id}/premium`,
+  catalog: "/api/contenidos",
+  catalogSearch: "/api/contenidos",
+  generos: "/api/generos",
   favorites: "/api/favorites",
 } as const;
 
