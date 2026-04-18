@@ -39,7 +39,7 @@ export function UserMenu() {
           />
           <div style={styles.menu}>
             <div style={styles.menuHeader}>
-              <p style={styles.email}>{user.email}</p>
+              <p style={styles.email}>{user.displayName}</p>
             </div>
             
             <div style={styles.menuDivider} />
