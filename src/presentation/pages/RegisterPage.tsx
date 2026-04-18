@@ -15,7 +15,7 @@ export function RegisterPage() {
     e.preventDefault();
     try {
       await register(formData);
-      navigate("/products");
+      navigate("/dashboard");
     } catch {
       
     }
