@@ -12,7 +12,7 @@ export function LoginPage() {
     e.preventDefault();
     try {
       await login({ email, password });
-      navigate("/products");
+      navigate("/dashboard");
     } catch {
       
     }
@@ -21,7 +21,7 @@ export function LoginPage() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>Bienvenido 👋</h1>
+        <h1 style={styles.title}>🎬 KrakeStream</h1>
         <p style={styles.subtitle}>Inicia sesión para continuar</p>
 
         <form onSubmit={handleSubmit} style={styles.form}>

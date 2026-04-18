@@ -3,7 +3,8 @@ import { ErrorBoundary } from "@/presentation/components/ErrorBoundary";
 import { ProtectedRoute } from "@/presentation/components/ProtectedRoute";
 import { LoginPage } from "@/presentation/pages/LoginPage";
 import { RegisterPage } from "@/presentation/pages/RegisterPage";
-import { ProductsPage } from "@/presentation/pages/ProductsPage";
+import { DashboardPage } from "@/presentation/pages/DashboardPage";
+import { MyListPage } from "@/presentation/pages/MyListPage";
 import { UpgradePage } from "@/presentation/pages/UpgradePage";
 import { UserMenu } from "@/presentation/components/UserMenu";
 import { useAuth } from "@/presentation/hooks/useAuth";
@@ -16,7 +17,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       {isAuthenticated && (
         <header style={styles.header}>
           <div style={styles.headerContent}>
-            <h1 style={styles.logo}>🛍️ Mi Tienda</h1>
+            <h1 style={styles.logo}>🎬 KrakeStream</h1>
             <UserMenu />
           </div>
         </header>
@@ -36,10 +37,19 @@ export function App() {
             <Route path="/register" element={<RegisterPage />} />
             
             <Route
-              path="/products"
+              path="/dashboard"
               element={
                 <ProtectedRoute>
-                  <ProductsPage />
+                  <DashboardPage />
+                </ProtectedRoute>
+              }
+            />
+            
+            <Route
+              path="/mylist"
+              element={
+                <ProtectedRoute>
+                  <MyListPage />
                 </ProtectedRoute>
               }
             />
@@ -53,8 +63,8 @@ export function App() {
               }
             />
             
-            <Route path="/" element={<Navigate to="/products" replace />} />
-            <Route path="*" element={<Navigate to="/products" replace />} />
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </Layout>
       </BrowserRouter>
