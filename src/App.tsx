@@ -6,6 +6,7 @@ import { RegisterPage } from "@/presentation/pages/RegisterPage";
 import { DashboardPage } from "@/presentation/pages/DashboardPage";
 import { MyListPage } from "@/presentation/pages/MyListPage";
 import { UpgradePage } from "@/presentation/pages/UpgradePage";
+import { ProfilePage } from "@/presentation/pages/ProfilePage";
 import { UserMenu } from "@/presentation/components/UserMenu";
 import { useAuth } from "@/presentation/hooks/useAuth";
 
@@ -84,6 +85,15 @@ export function App() {
               element={
                 <ProtectedRoute>
                   <UpgradePage />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <ProfilePage />
                 </ProtectedRoute>
               }
             />

@@ -19,15 +19,21 @@ export class ApiUserRepository implements UserRepository {
     return this.mapUserResponse(response);
   }
 
-  async upgradeToPremium(id: UserId): Promise<User> {
-    const response = await this.http.post<UserResponse>(
-      API_ROUTES.upgradePremium(id)
-    );
-    const user = this.mapUserResponse(response);
-    
-    localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(user));
-    
-    return user;
+  async upgradeToPremium(_id: UserId): Promise<User> {
+    // El backend no tiene endpoint de upgrade — actualizamos localmente
+    const stored = localStorage.getItem(STORAGE_KEYS.user);
+    if (!stored) throw new Error("No hay sesión activa");
+
+    const current = JSON.parse(stored) as UserResponse;
+    const updated: User = {
+      ...current,
+      id: String(current.id),
+      isPremium: true,
+      createdAt: new Date(current.createdAt),
+    };
+
+    localStorage.setItem(STORAGE_KEYS.user, JSON.stringify({ ...current, isPremium: true }));
+    return updated;
   }
 
   async updateProfile(id: UserId, data: Partial<User>): Promise<User> {
