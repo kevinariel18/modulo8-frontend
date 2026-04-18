@@ -2,17 +2,20 @@ import { useState, type FormEvent } from "react";
 import { useAuth } from "@/presentation/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
-export function LoginPage() {
-  const { login, isLoading, error } = useAuth();
+export function RegisterPage() {
+  const { register, isLoading, error } = useAuth();
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    displayName: "",
+  });
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      await login({ email, password });
-      navigate("/dashboard");
+      await register(formData);
+      navigate("/products");
     } catch {
       
     }
@@ -21,10 +24,28 @@ export function LoginPage() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>🎬 KrakeStream</h1>
-        <p style={styles.subtitle}>Inicia sesión para continuar</p>
+        <h1 style={styles.title}>Crear cuenta ✨</h1>
+        <p style={styles.subtitle}>Únete y disfruta de todos los beneficios</p>
 
         <form onSubmit={handleSubmit} style={styles.form}>
+          <div style={styles.inputGroup}>
+            <label htmlFor="displayName" style={styles.label}>
+              Nombre completo
+            </label>
+            <input
+              id="displayName"
+              type="text"
+              value={formData.displayName}
+              onChange={(e) =>
+                setFormData({ ...formData, displayName: e.target.value })
+              }
+              placeholder="Juan Pérez"
+              required
+              style={styles.input}
+              disabled={isLoading}
+            />
+          </div>
+
           <div style={styles.inputGroup}>
             <label htmlFor="email" style={styles.label}>
               Email
@@ -32,8 +53,10 @@ export function LoginPage() {
             <input
               id="email"
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
               placeholder="tu@email.com"
               required
               style={styles.input}
@@ -48,10 +71,13 @@ export function LoginPage() {
             <input
               id="password"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              placeholder="Mínimo 6 caracteres"
               required
+              minLength={6}
               style={styles.input}
               disabled={isLoading}
             />
@@ -67,13 +93,13 @@ export function LoginPage() {
               ...(isLoading ? styles.buttonDisabled : {}),
             }}
           >
-            {isLoading ? "Iniciando..." : "Iniciar sesión"}
+            {isLoading ? "Creando cuenta..." : "Registrarse"}
           </button>
 
           <p style={styles.footer}>
-            ¿No tienes cuenta?{" "}
-            <a href="/register" style={styles.link}>
-              Regístrate aquí
+            ¿Ya tienes cuenta?{" "}
+            <a href="/login" style={styles.link}>
+              Inicia sesión
             </a>
           </p>
         </form>
