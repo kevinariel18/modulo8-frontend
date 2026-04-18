@@ -72,7 +72,7 @@ export function DashboardPage({ isPremium, onGoToMyList, onBecomePremium }: Dash
     <section style={{ padding: 24, maxWidth: 960, margin: "0 auto" }}>
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20, flexWrap: "wrap", gap: 10 }}>
-        <h1 style={{ margin: 0 }}>🎬 Catálogo</h1>
+        <h1 style={{ margin: 0 }}>Catalogo</h1>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           <button type="button" onClick={() => setShowGenreModal(true)} style={btnOutline}>
             + Género
@@ -82,7 +82,7 @@ export function DashboardPage({ isPremium, onGoToMyList, onBecomePremium }: Dash
           </button>
           {!isPremium && (
             <button type="button" onClick={onBecomePremium} style={btnGold}>
-              ⭐ Premium
+              Premium
             </button>
           )}
           <button type="button" onClick={onGoToMyList} style={btnPurple}>

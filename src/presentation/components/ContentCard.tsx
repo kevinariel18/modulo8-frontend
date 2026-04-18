@@ -21,17 +21,17 @@ export function ContentCard({ content, favorites, onAdd, onRemove, onEdit, onDel
           <div style={{ display: "flex", gap: 6 }}>
             {onEdit && (
               <button type="button" onClick={() => onEdit(content)} style={btnIcon} title="Editar">
-                ✏️
+                Editar
               </button>
             )}
             {onDelete && (
               <button
                 type="button"
                 onClick={() => { if (confirm(`¿Eliminar "${content.title}"?`)) onDelete(content.id); }}
-                style={btnIcon}
+                style={{ ...btnIcon, color: "#e53e3e" }}
                 title="Eliminar"
               >
-                🗑️
+                Eliminar
               </button>
             )}
           </div>
