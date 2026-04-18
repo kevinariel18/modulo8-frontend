@@ -27,7 +27,7 @@ export function UserMenu() {
         </div>
         <div style={styles.userInfo}>
           <span style={styles.name}>{user.displayName}</span>
-          {user.isPremium && <span style={styles.badge}>👑 Premium</span>}
+          {user.isPremium && <span style={styles.badge}>Premium</span>}
         </div>
       </button>
 
@@ -51,7 +51,7 @@ export function UserMenu() {
               }}
               style={styles.menuItem}
             >
-              👤 Mi perfil
+              Mi perfil
             </button>
             
             {!user.isPremium && (
@@ -62,7 +62,7 @@ export function UserMenu() {
                 }}
                 style={styles.menuItemPremium}
               >
-                👑 Hazte Premium
+                Hazte Premium
               </button>
             )}
             
@@ -72,7 +72,7 @@ export function UserMenu() {
               onClick={handleLogout}
               style={styles.menuItemDanger}
             >
-              🚪 Cerrar sesión
+              Cerrar sesión
             </button>
           </div>
         </>

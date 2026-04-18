@@ -34,7 +34,7 @@ export function DashboardPage({ isPremium, onGoToMyList, onBecomePremium }: Dash
   return (
     <section style={{ padding: 24, maxWidth: 900, margin: "0 auto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-        <h1 style={{ margin: 0 }}>🎬 KrakeStream</h1>
+        <h1 style={{ margin: 0 }}>KrakeStream</h1>
         <div style={{ display: "flex", gap: 10 }}>
           {!isPremium && (
             <button
@@ -42,7 +42,7 @@ export function DashboardPage({ isPremium, onGoToMyList, onBecomePremium }: Dash
               onClick={onBecomePremium}
               style={{ background: "#d69e2e", color: "#fff", border: "none", borderRadius: 6, padding: "8px 16px", cursor: "pointer" }}
             >
-              ⭐ Hazte Premium
+              Hazte Premium
             </button>
           )}
           <button
@@ -50,7 +50,7 @@ export function DashboardPage({ isPremium, onGoToMyList, onBecomePremium }: Dash
             onClick={onGoToMyList}
             style={{ background: "#553c9a", color: "#fff", border: "none", borderRadius: 6, padding: "8px 16px", cursor: "pointer" }}
           >
-            📋 Mi Lista ({favorites.length})
+            Mi Lista ({favorites.length})
           </button>
         </div>
       </div>
@@ -63,15 +63,14 @@ export function DashboardPage({ isPremium, onGoToMyList, onBecomePremium }: Dash
       {/* Feedback de favoritos */}
       {favError && (
         <div style={{ background: "#fff5f5", border: "1px solid #fc8181", borderRadius: 6, padding: 12, marginBottom: 16, color: "#c53030" }}>
-          ⚠️ {favError}
+          {favError}
         </div>
       )}
 
-      {/* Estados de carga / vacío / error */}
-      {loading && <p style={{ textAlign: "center", color: "#888" }}>⏳ Cargando catálogo...</p>}
+      {loading && <p style={{ textAlign: "center", color: "#888" }}>Cargando catálogo...</p>}
       {error && (
         <div style={{ background: "#fff5f5", border: "1px solid #fc8181", borderRadius: 6, padding: 12, color: "#c53030" }}>
-          ❌ {error}
+          {error}
         </div>
       )}
       {!loading && !error && contents.length === 0 && (

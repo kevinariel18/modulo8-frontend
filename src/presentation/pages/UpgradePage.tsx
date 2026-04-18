@@ -13,7 +13,7 @@ export function UpgradePage() {
   return (
     <div style={styles.container}>
       <div style={styles.hero}>
-        <h1 style={styles.title}>Desbloquea todo el potencial 🚀</h1>
+        <h1 style={styles.title}>Desbloquea todo el potencial</h1>
         <p style={styles.subtitle}>
           Únete a miles de usuarios que ya disfrutan de la experiencia premium
         </p>

@@ -33,7 +33,6 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div style={styles.container}>
           <div style={styles.card}>
-            <div style={styles.icon}>⚠️</div>
             <h1 style={styles.title}>Algo salió mal</h1>
             <p style={styles.message}>
               {this.state.error?.message || "Ha ocurrido un error inesperado"}

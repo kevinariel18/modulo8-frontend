@@ -17,7 +17,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       {isAuthenticated && (
         <header style={styles.header}>
           <div style={styles.headerContent}>
-            <h1 style={styles.logo}>🎬 KrakeStream</h1>
+            <h1 style={styles.logo}>KrakeStream</h1>
             <UserMenu />
           </div>
         </header>

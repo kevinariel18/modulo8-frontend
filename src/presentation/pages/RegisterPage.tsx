@@ -24,7 +24,7 @@ export function RegisterPage() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>Crear cuenta ✨</h1>
+        <h1 style={styles.title}>Crear cuenta</h1>
         <p style={styles.subtitle}>Únete y disfruta de todos los beneficios</p>
 
         <form onSubmit={handleSubmit} style={styles.form}>

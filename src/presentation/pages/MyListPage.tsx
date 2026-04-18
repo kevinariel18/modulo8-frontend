@@ -18,14 +18,14 @@ export function MyListPage({ isPremium, onBack }: MyListPageProps) {
         >
           ← Volver
         </button>
-        <h1 style={{ margin: 0 }}>📋 Mi Lista</h1>
-        {isPremium && <span style={{ background: "#d69e2e", color: "#fff", borderRadius: 12, padding: "2px 10px", fontSize: 12 }}>⭐ Premium</span>}
+        <h1 style={{ margin: 0 }}>Mi Lista</h1>
+        {isPremium && <span style={{ background: "#d69e2e", color: "#fff", borderRadius: 12, padding: "2px 10px", fontSize: 12 }}>Premium</span>}
       </div>
 
-      {loading && <p style={{ color: "#888" }}>⏳ Cargando tu lista...</p>}
+      {loading && <p style={{ color: "#888" }}>Cargando tu lista...</p>}
       {error && (
         <div style={{ background: "#fff5f5", border: "1px solid #fc8181", borderRadius: 6, padding: 12, color: "#c53030" }}>
-          ❌ {error}
+          {error}
         </div>
       )}
       {!loading && !error && favorites.length === 0 && (
@@ -52,7 +52,7 @@ export function MyListPage({ isPremium, onBack }: MyListPageProps) {
               onClick={() => void removeFavorite(fav.id)}
               style={{ background: "#e53e3e", color: "#fff", border: "none", borderRadius: 6, padding: "6px 12px", cursor: "pointer" }}
             >
-              ❌ Eliminar
+              Eliminar
             </button>
           </li>
         ))}

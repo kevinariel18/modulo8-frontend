@@ -25,17 +25,16 @@ export function PremiumButton() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <div style={styles.icon}>👑</div>
         <h3 style={styles.title}>Hazte Premium</h3>
         <p style={styles.description}>
           Desbloquea funciones exclusivas y disfruta de una experiencia sin límites
         </p>
         
         <ul style={styles.features}>
-          <li style={styles.feature}>✨ Acceso a productos exclusivos</li>
-          <li style={styles.feature}>🚀 Envío gratis en todos tus pedidos</li>
-          <li style={styles.feature}>💎 Descuentos especiales</li>
-          <li style={styles.feature}>🎯 Soporte prioritario</li>
+          <li style={styles.feature}>Acceso a productos exclusivos</li>
+          <li style={styles.feature}>Envío gratis en todos tus pedidos</li>
+          <li style={styles.feature}>Descuentos especiales</li>
+          <li style={styles.feature}>Soporte prioritario</li>
         </ul>
 
         {error && <div style={styles.error}>{error}</div>}

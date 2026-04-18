@@ -38,7 +38,7 @@ export function ContentCard({ content, favorites, onAdd, onRemove }: ContentCard
           onClick={() => onRemove(favorite.id)}
           style={{ background: "#e53e3e", color: "#fff", border: "none", borderRadius: 6, padding: "6px 12px", cursor: "pointer" }}
         >
-          ❌ Quitar de Mi Lista
+          Quitar de Mi Lista
         </button>
       ) : (
         <button
@@ -46,7 +46,7 @@ export function ContentCard({ content, favorites, onAdd, onRemove }: ContentCard
           onClick={() => onAdd(content.id)}
           style={{ background: "#3182ce", color: "#fff", border: "none", borderRadius: 6, padding: "6px 12px", cursor: "pointer" }}
         >
-          ➕ Agregar a Mi Lista
+          Agregar a Mi Lista
         </button>
       )}
     </li>
