@@ -16,6 +16,8 @@ export function UserMenu() {
     navigate("/login");
   };
 
+  const displayName = user?.displayName || "Usuario";
+
   return (
     <div style={styles.container}>
       <button
@@ -23,10 +25,10 @@ export function UserMenu() {
         style={styles.trigger}
       >
         <div style={styles.avatar}>
-          {user.displayName.charAt(0).toUpperCase()}
+          {displayName.charAt(0).toUpperCase()}
         </div>
         <div style={styles.userInfo}>
-          <span style={styles.name}>{user.displayName}</span>
+          <span style={styles.name}>{displayName}</span>
           {user.isPremium && <span style={styles.badge}>Premium</span>}
         </div>
       </button>
@@ -39,7 +41,7 @@ export function UserMenu() {
           />
           <div style={styles.menu}>
             <div style={styles.menuHeader}>
-              <p style={styles.email}>{user.displayName}</p>
+              <p style={styles.email}>{displayName}</p>
             </div>
             
             <div style={styles.menuDivider} />
